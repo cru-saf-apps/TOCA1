@@ -73,7 +73,7 @@ if acao == 'Adicionar atleta':
     deslig = ""
     motivo = ""
     
-    criar = st.button("Adicionar atleta")
+    cria = st.button("Adicionar atleta")
     
     lista_linha = [nome,data,tel,cat,pos,
                    indicador,visu,contato,origem,
@@ -81,7 +81,7 @@ if acao == 'Adicionar atleta':
                    aval,data1_aval,data2_aval,
                    aprov,data_contrat,situ,deslig,motivo]
     
-if criar:
+if cria:
   colunas = base.columns
   base_teste = pd.DataFrame(columns=colunas)
   base_teste.loc[0] = lista_linha
