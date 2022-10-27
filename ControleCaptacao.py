@@ -42,7 +42,7 @@ if acao == 'Adicionar atleta':
     if monit == 'Sim':
       data1_monit = st.date_input('Início do monitoramento')
       data2_monit = ""
-      st.write("A data de fim do monitoramento será preenchida no momento do resultado")
+      st.write("A data de fim do monitoramento será preenchida no momento do resultado.")
     else:
       data1_monit = ""
       data2_monit = ""
@@ -52,7 +52,7 @@ if acao == 'Adicionar atleta':
     if aval == 'Sim':
       data1_aval = st.date_input('Início da avaliação')
       data2_aval = ""
-      st.write("A data de fim da avaliação será preenchida no momento do resultado") 
+      st.write("A data de fim da avaliação será preenchida no momento do resultado.") 
     else:
       data1_aval = ""
       data2_aval = ""
@@ -82,12 +82,17 @@ if acao == 'Adicionar atleta':
 if criar:
   colunas = base.columns
   base_teste = pd.DataFrame(columns=colunas)
-  base_teste = base_teste.append(lista_linha)
+  df.iloc[0] = lista_linha
   st.write(base_teste)
-  with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
-    base_writer = csv.writer(base_csv, delimiter=';')
+  st.write("Confirma as informações do atleta?")
+  confirm = st.button("Confirmar")
+  if confirm:
+    with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
+      base_writer = csv.writer(base_csv, delimiter=';')
 
-    base_writer.writerow()
+      base_writer.writerow(lista_linha)
+      
+      
 
         
 elif acao == 'Editar atleta':
