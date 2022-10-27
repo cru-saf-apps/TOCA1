@@ -62,9 +62,11 @@ if acao == 'Adicionar atleta':
     contrat = st.radio("Contratado?",options=['Não','Sim'])
 
     if contrat == 'Sim':
+      aprov = "Sim"
       data_contrat = st.date_input('Data da contratação')
       situ = st.text("Situação: ATIVO")
     else:
+      aprov = ""
       data_contrat = ""
       situ = ""
 
@@ -76,8 +78,8 @@ if acao == 'Adicionar atleta':
     lista_linha = [nome,data,tel,cat,pos,
                    indicador,visu,contato,origem,
                    monit,data1_monit,data2_monit,
-                   aval,data1_aval,data2_aval,aprov,
-                   contrat,data_contrat,situ,deslig,motivo]
+                   aval,data1_aval,data2_aval,
+                   aprov,data_contrat,situ,deslig,motivo]
     
 if criar:
   colunas = base.columns
