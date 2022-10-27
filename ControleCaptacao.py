@@ -9,3 +9,9 @@ st.subheader("O que deseja fazer?")
 
 acao = st.radio("Selecione o que deseja fazer:",options = ['Adicionar atleta','Ver histórico de atleta','Editar atleta'])
 
+if acao == 'Adicionar atleta':
+  nome = text_input("Nome")
+  datanasc = date_input("Data de nascimento")
+  tel = text_input("Contato de telefone")
+  cat = st.checkbox("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
+  pos = st.checkbox("Posição",options=['GOL','LD','ZAG','LE','VOL','MEI','EXT','ATA'])
