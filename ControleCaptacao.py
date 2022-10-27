@@ -73,8 +73,6 @@ if acao == 'Adicionar atleta':
     
     criar = st.button("Adicionar atleta")
     
-    s
-    
     lista_linha = [nome,data,tel,cat,pos,
                    indicador,visu,contato,origem,
                    monit,data1_monit,data2_monit,
