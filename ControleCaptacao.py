@@ -18,7 +18,7 @@ if acao == 'Adicionar atleta':
     st.subheader("Informações pessoais")
     
     nome = st.text_input("Nome")
-    st.date_input("Data de Nascimento")
+    data = st.date_input("Data de Nascimento")
     tel = st.text_input("Contato de telefone")
     cat = st.selectbox("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
     pos = st.selectbox("Posição",options=['GOL','LD','ZAG','LE','VOL','MEI','EXT','ATA'])
@@ -52,26 +52,44 @@ if acao == 'Adicionar atleta':
     if aval == 'Sim':
       data1_aval = st.date_input('Início da avaliação')
       data2_aval = ""
-      st.write("A data de fim da avaliação será preenchida no momento do resultado")
-
-      
-
+      st.write("A data de fim da avaliação será preenchida no momento do resultado") 
     else:
       data1_aval = ""
       data2_aval = ""
-
+    
+    aprov = ""
+    
     contrat = st.radio("Contratado?",options=['Não','Sim'])
 
     if contrat == 'Sim':
       data_contrat = st.date_input('Data da contratação')
-
-      situ_text = st.text("Situação: ATIVO")
-      
+      situ = st.text("Situação: ATIVO")
     else:
       data_contrat = ""
-      
+      situ = ""
+
+    deslig = ""
+    motivo = ""
+    
     criar = st.button("Adicionar atleta")
     
+    s
+    
+    lista_linha = [nome,data,tel,cat,pos,
+                   indicador,visu,contato,origem,
+                   monit,data1_monit,data2_monit,
+                   aval,data1_aval,data2_aval,aprov,
+                   contrat,data_contrat,situ,deslig,motivo]
+    
+if criar:
+  colunas = base.columns
+  base_teste = pd.DataFrame(colunas)
+  base_teste = base_teste.append(lista_linha)
+  st.write(base_teste)
+  with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
+    base_writer = csv.writer(base_csv, delimiter=';')
+
+    base_writer.writerow()
 
         
 elif acao == 'Editar atleta':
