@@ -10,7 +10,7 @@ st.subheader("O que deseja fazer?")
 acao = st.radio("Selecione o que deseja fazer:",options = ['Adicionar atleta','Ver histórico de atleta','Editar atleta'])
 
 if acao == 'Adicionar atleta':
-  col1, col2 = st.columns(2)
+  col1, col2, col3 = st.columns(3)
   
   with col1:
     st.subheader("Informações pessoais")
@@ -31,50 +31,51 @@ if acao == 'Adicionar atleta':
     else:
       contato = "-"
     origem = st.text_input("Origem do jogador (Último clube / escolinha / projeto)")
-    
-  st.subheader("Histórico no clube")
   
-  monit = st.radio("Monitorado?",options=['Sim','Não'])
-  
-  if monit == 'Sim':
-    data1_monit = st.date_input('Início do monitoramento')
-    data2_monit = st.date_input('Fim do monitoramento')
-  else:
-    data1_monit = ""
-    data2_monit = ""
-    
-  aval = st.radio("Avaliação?",options=['Sim','Não'])
-  
-  if aval == 'Sim':
-    data1_aval = st.date_input('Início da avaliação')
-    data2_aval = st.date_input('Fim da avaliação')
-    
-    aprov = st.radio("Aprovado?",options=['Sim','Não'])
-    if aprov == 'Sim':
-      data_aprov = st.date_input('Data da aprovação')
-     
+  with col3:
+    st.subheader("Histórico no clube")
+
+    monit = st.radio("Monitorado?",options=['Sim','Não'])
+
+    if monit == 'Sim':
+      data1_monit = st.date_input('Início do monitoramento')
+      data2_monit = st.date_input('Fim do monitoramento')
+    else:
+      data1_monit = ""
+      data2_monit = ""
+
+    aval = st.radio("Avaliação?",options=['Sim','Não'])
+
+    if aval == 'Sim':
+      data1_aval = st.date_input('Início da avaliação')
+      data2_aval = st.date_input('Fim da avaliação')
+
+      aprov = st.radio("Aprovado?",options=['Sim','Não'])
+      if aprov == 'Sim':
+        data_aprov = st.date_input('Data da aprovação')
+
+        situ_text = st.text("Situação: ATIVO")
+
+        deslig = st.selectbox("Desligado?",options=['Sim','Não'],key=1)
+
+        if deslig == 'Sim':
+          situ_text.text('Situação: DESLIGADO')
+
+    else:
+      data1_aval = ""
+      data2_aval = ""
+
+    contrat = st.radio("Contratado?",options=['Sim','Não'])
+
+    if contrat == 'Sim':
+      data_contrat = st.date_input('Data da contratação')
+
       situ_text = st.text("Situação: ATIVO")
-      
-      deslig = st.selectbox("Desligado?",options=['Sim','Não'])
-      
+
+      deslig = st.selectbox("Desligado?",options=['Sim','Não'],key=2)
+
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
-
-  else:
-    data1_aval = ""
-    data2_aval = ""
-    
-  contrat = st.radio("Contratado?",options=['Sim','Não'])
-  
-  if contrat == 'Sim':
-    data_contrat = st.date_input('Data da contratação')
-    
-    situ_text = st.text("Situação: ATIVO")
-      
-    deslig = st.selectbox("Desligado?",options=['Sim','Não'])
-      
-    if deslig == 'Sim':
-      situ_text.text('Situação: DESLIGADO')
   
     
   
