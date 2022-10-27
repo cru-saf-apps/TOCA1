@@ -18,8 +18,8 @@ if acao == 'Adicionar atleta':
     nome = st.text_input("Nome")
     datanasc = st.date_input("Data de nascimento")
     tel = st.text_input("Contato de telefone")
-    cat = st.radio("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
-    pos = st.radio("Posição",options=['GOL','LD','ZAG','LE','VOL','MEI','EXT','ATA'])
+    cat = st.selectbox("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
+    pos = st.selectbox("Posição",options=['GOL','LD','ZAG','LE','VOL','MEI','EXT','ATA'])
     
   with col2:
     st.subheader("Origem do jogador")
