@@ -55,7 +55,7 @@ if acao == 'Adicionar atleta':
      
       situ_text = st.text("Situação: ATIVO")
       
-      deslig = st.select("Desligado?",options=['Sim','Não'])
+      deslig = st.selectbox("Desligado?",options=['Sim','Não'])
       
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
