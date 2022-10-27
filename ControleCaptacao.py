@@ -48,10 +48,22 @@ if acao == 'Adicionar atleta':
   if aval == 'Sim':
     data1_aval = st.date_input('Início do monitoramento')
     data2_aval = st.date_input('Fim do monitoramento')
+    
+    aprov = st.radio("Aprovado?",options=['Sim','Não'])
+    if aprov == 'Sim':
+      data_aprov = st.date_input('Data da aprovação')
+     
+      situ_text = st.text("Situação: ATIVO")
+      
+      deslig = st.select("Desligado?",options=['Sim','Não'])
+      
+    
+    
   else:
     data1_aval = ""
     data2_aval = ""
     
+  
     
     
     
