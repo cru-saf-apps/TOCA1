@@ -61,6 +61,7 @@ if acao == 'Adicionar atleta':
 
         if deslig == 'Sim':
           situ_text.text('Situação: DESLIGADO')
+          motivo = st.radio("Motivo desligamento",options=['Técnico','Negociação','Indisciplina'])
 
     else:
       data1_aval = ""
@@ -77,6 +78,7 @@ if acao == 'Adicionar atleta':
 
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
+        motivo = st.radio("Motivo desligamento",options=['Técnico','Negociação','Indisciplina'])
         
 elif acao == 'Editar atleta':
   
