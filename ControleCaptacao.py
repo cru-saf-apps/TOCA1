@@ -16,7 +16,6 @@ if acao == 'Adicionar atleta':
     st.subheader("Informações pessoais")
     
     nome = st.text_input("Nome")
-    subcol1, subcol2, subcol3 = st.columns(3)
     st.date_input("Data de Nascimento")
     tel = st.text_input("Contato de telefone")
     cat = st.selectbox("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
