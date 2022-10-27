@@ -81,7 +81,9 @@ if acao == 'Adicionar atleta':
     
 if criar:
   colunas = base.columns
+  st.write(len(colunas),len(lista_linha))
   base_teste = pd.DataFrame(columns=colunas)
+  st.write(base_teste)
   base_teste.loc[0] = lista_linha
   st.write(base_teste)
   st.write("Confirma as informações do atleta?")
