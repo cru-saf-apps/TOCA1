@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import csv
 
 base = pd.read_csv('Planilha Geral - Captação TOCA I1.csv',sep=';',decimal=',').reset_index(drop=True)
 base = base.rename(columns={'Posição (GOL, ZG, LD, LE, VOL, MEI, ATA, EXT)':'Posição','Nome Completo':'Nome'})
@@ -65,6 +66,12 @@ if acao == 'Adicionar atleta':
       data_contrat = st.date_input('Data da contratação')
 
       situ_text = st.text("Situação: ATIVO")
+      
+    else:
+      data_contrat = ""
+      
+    criar = st.button("Adicionar atleta")
+    
 
         
 elif acao == 'Editar atleta':
