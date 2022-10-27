@@ -17,13 +17,7 @@ if acao == 'Adicionar atleta':
     
     nome = st.text_input("Nome")
     subcol1, subcol2, subcol3 = st.columns(3)
-    st.write("Data de Nascimento")
-    with subcol1:
-      dia_nasc = text_input("Dia")
-    with subcol2:
-      mes_nasc = text_input("Mês (1 a 12)")
-    with subcol3:
-      ano_nasc = text_input("Ano completo (Ex: 2007)")
+    st.date_input("Data de Nascimento")
     tel = st.text_input("Contato de telefone")
     cat = st.selectbox("Categoria de chegada (Sub-...)",options=[6,7,8,9,10,11,12,13,14,15,17,20])
     pos = st.selectbox("Posição",options=['GOL','LD','ZAG','LE','VOL','MEI','EXT','ATA'])
