@@ -66,11 +66,6 @@ if acao == 'Adicionar atleta':
 
       situ_text = st.text("Situação: ATIVO")
 
-      deslig = st.selectbox("Desligado?",options=['Não','Sim'],key=2)
-
-      if deslig == 'Sim':
-        situ_text.text('Situação: DESLIGADO')
-        motivo = st.radio("Motivo desligamento",options=['Técnico','Negociação','Indisciplina'])
         
 elif acao == 'Editar atleta':
   
