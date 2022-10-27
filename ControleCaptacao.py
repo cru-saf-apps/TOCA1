@@ -78,7 +78,7 @@ if acao == 'Adicionar atleta':
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
         
-elif acao == 'Editar jogador':
+elif acao == 'Editar atleta':
   
   st.subheader('Busca Rápida')
   pesq_rap = st.text_input('Digite o nome desejado:')
