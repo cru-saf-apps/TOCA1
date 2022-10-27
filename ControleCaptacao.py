@@ -40,7 +40,8 @@ if acao == 'Adicionar atleta':
 
     if monit == 'Sim':
       data1_monit = st.date_input('Início do monitoramento')
-      data2_monit = st.date_input('Fim do monitoramento')
+      data2_monit = ""
+      st.write("A data de fim do monitoramento será preenchida no momento do resultado")
     else:
       data1_monit = ""
       data2_monit = ""
@@ -49,19 +50,10 @@ if acao == 'Adicionar atleta':
 
     if aval == 'Sim':
       data1_aval = st.date_input('Início da avaliação')
-      data2_aval = st.date_input('Fim da avaliação')
+      data2_aval = ""
+      st.write("A data de fim da avaliação será preenchida no momento do resultado")
 
-      aprov = st.radio("Aprovado?",options=['Não','Sim'])
-      if aprov == 'Sim':
-        data_aprov = st.date_input('Data da aprovação')
-
-        situ_text = st.text("Situação: ATIVO")
-
-        deslig = st.selectbox("Desligado?",options=['Não','Sim'],key=1)
-
-        if deslig == 'Sim':
-          situ_text.text('Situação: DESLIGADO')
-          motivo = st.radio("Motivo desligamento",options=['Técnico','Negociação','Indisciplina'])
+      
 
     else:
       data1_aval = ""
