@@ -2,12 +2,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-base = pd.read_csv('Planilha Geral - Captação TOCA I1.csv',sep=';',decimal=',')
+base = pd.read_csv('Planilha Geral - Captação TOCA I1.csv',sep=';',decimal=',').reset_index(drop=True)
+base = base.rename(columns={'Posição (GOL, ZG, LD, LE, VOL, MEI, ATA, EXT)':'Posição','Nome Completo':'Nome'})
 st.write(base)
 
 st.subheader("O que deseja fazer?")
 
-acao = st.radio("Selecione o que deseja fazer:",options = ['Adicionar atleta','Ver histórico de atleta','Editar atleta'])
+acao = st.radio("Selecione o que deseja fazer:",options = ['Adicionar atleta','Editar atleta','Ver atleta'])
 
 if acao == 'Adicionar atleta':
   col1, col2, col3 = st.columns(3)
@@ -76,13 +77,18 @@ if acao == 'Adicionar atleta':
 
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
+        
+elif acao == 'Editar jogador':
   
-    
+  st.subheader('Busca Rápida')
+  pesq_rap = st.text_input('Digite o nome desejado:')
   
+  lista_results = []
+  nomes = pd.unique(base.Nome).tolist()
+  t = 0
+  while t<len(nomes):
+    if pesq_rap in nomes[t]:
+      lista_results.append(nomes[t])
+    t += 1
     
-    
-    
-  
-    
-    
-   
+  st.write(base[base.Nome.isin(lista_results)][['Nome','Data Nascimento','Posição']])
