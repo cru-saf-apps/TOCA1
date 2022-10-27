@@ -81,7 +81,7 @@ if acao == 'Adicionar atleta':
     
 if criar:
   colunas = base.columns
-  base_teste = pd.DataFrame(colunas)
+  base_teste = pd.DataFrame(columns=colunas)
   base_teste = base_teste.append(lista_linha)
   st.write(base_teste)
   with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
