@@ -32,7 +32,30 @@ if acao == 'Adicionar atleta':
       contato = "-"
     origem = st.text_input("Origem do jogador (Último clube / escolinha / projeto)")
     
+  st.subheader("Histórico no clube")
+  
+  monit = st.radio("Monitorado?",options=['Sim','Não'])
+  
+  if monit == 'Sim':
+    data1_monit = st.date_input('Início do monitoramento')
+    data2_monit = st.date_input('Fim do monitoramento')
+  else:
+    data1_monit = ""
+    data2_monit = ""
     
+  aval = st.radio("Avaliação?",options=['Sim','Não'])
+  
+  if aval == 'Sim':
+    data1_aval = st.date_input('Início do monitoramento')
+    data2_aval = st.date_input('Fim do monitoramento')
+  else:
+    data1_aval = ""
+    data2_aval = ""
+    
+    
+    
+    
+  
     
     
    
