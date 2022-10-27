@@ -59,12 +59,23 @@ if acao == 'Adicionar atleta':
       
       if deslig == 'Sim':
         situ_text.text('Situação: DESLIGADO')
-      
-    
-    
+
   else:
     data1_aval = ""
     data2_aval = ""
+    
+  contrat = st.radio("Contratado?",options=['Sim','Não'])
+  
+  if contrat == 'Sim':
+    data_contrat = st.date_input('Data da contratação')
+    
+    situ_text = st.text("Situação: ATIVO")
+      
+    deslig = st.selectbox("Desligado?",options=['Sim','Não'])
+      
+    if deslig == 'Sim':
+      situ_text.text('Situação: DESLIGADO')
+  
     
   
     
