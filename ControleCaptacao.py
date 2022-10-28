@@ -83,7 +83,7 @@ if acao == 'Adicionar atleta':
     
     linha = lista_linha[0]
     for item in lista_linha:
-      linha = ";"+str(item)
+      linha = linha+";"+str(item)
       
     st.write(linha)
     
