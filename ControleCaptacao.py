@@ -91,7 +91,7 @@ if cria:
   confirm = st.button("Confirmar")
   if confirm:
     base.loc[len(base)] = lista_linha
-    base.to_csv('Planilha Geral - Captação TOCA I1.csv')
+    base.to_csv('Teste.csv')
     
       
       
