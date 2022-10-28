@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import csv
+import SessionState
 
 base = pd.read_csv('Planilha Geral - TOCA 1.csv').reset_index(drop=True)
 base = base.rename(columns={'Posição (GOL, ZG, LD, LE, VOL, MEI, ATA, EXT)':'Posição','Nome Completo':'Nome'})
@@ -75,6 +76,8 @@ if acao == 'Adicionar atleta':
     
     cria = st.button("Adicionar atleta")
     
+    ss = SessionState.get(cria = False)
+    
     lista_linha = [nome,data,tel,cat,pos,
                    indicador,visu,contato,origem,
                    monit,data1_monit,data2_monit,
@@ -83,6 +86,8 @@ if acao == 'Adicionar atleta':
 
 
 if cria:
+  ss.button1 = True
+  
   colunas = base.columns
   base_teste = pd.DataFrame(columns=colunas)
   base_teste.loc[0] = lista_linha
@@ -93,6 +98,7 @@ if cria:
   
   if cria2:
     write('teste botao')
+    ss.button1 = False
       
 
 elif acao == 'Editar atleta':
