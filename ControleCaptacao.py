@@ -98,11 +98,7 @@ if cria:
     with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
       base_writer = csv.writer(base_csv, delimiter=';')
 
-      base_writer.writerows([nome,data,tel,cat,pos,
-                   indicador,visu,contato,origem,
-                   monit,data1_monit,data2_monit,
-                   aval,data1_aval,data2_aval,
-                   aprov,data_contrat,situ,deslig,motivo])
+      base_writer.writerow(linha)
       
       base_csv.close()
       
