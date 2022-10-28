@@ -109,3 +109,6 @@ elif acao == 'Editar atleta':
     t += 1
     
   st.write(base[base.Nome.isin(lista_results)][['Nome','Data Nascimento','Posição']])
+  
+  
+baixar = st.download_button("Baixar base",'Planilha Geral - TOCA 1.csv')
