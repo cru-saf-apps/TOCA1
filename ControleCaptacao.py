@@ -81,6 +81,13 @@ if acao == 'Adicionar atleta':
                    aval,data1_aval,data2_aval,
                    aprov,data_contrat,situ,deslig,motivo]
     
+    linha = lista_linha[0]
+    
+    for item in lista_linha[1:]:
+      linha=linha+";"+str(item)
+      
+    st.write(linha)
+    
  
 if cria:
   colunas = base.columns
