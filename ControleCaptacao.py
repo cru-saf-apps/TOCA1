@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import csv
 
-base = pd.read_csv('Planilha Geral - TOCA 1.csv',sep=';',decimal=',').reset_index(drop=True)
+base = pd.read_csv('Planilha Geral - TOCA 1.csv').reset_index(drop=True)
 base = base.rename(columns={'Posição (GOL, ZG, LD, LE, VOL, MEI, ATA, EXT)':'Posição','Nome Completo':'Nome'})
 st.write(base)
 
