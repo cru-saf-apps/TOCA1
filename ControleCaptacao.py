@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import csv
 
-base = pd.read_csv('Planilha Geral - Captação TOCA I1.csv',sep=';',decimal=',').reset_index(drop=True)
+base = pd.read_csv('PlanilhaGeral.csv',sep=';',decimal=',').reset_index(drop=True)
 base = base.rename(columns={'Posição (GOL, ZG, LD, LE, VOL, MEI, ATA, EXT)':'Posição','Nome Completo':'Nome'})
 st.write(base)
 
@@ -90,7 +90,7 @@ if cria:
   st.write(base_teste)
   confirm = st.button("Confirmar")
   if confirm:
-    with open('Planilha Geral - Captação TOCA I1.csv','a') as base_csv:
+    with open('PlanilhaGeral.csv','a') as base_csv:
       
       writer = csv.writer(base_csv)
       writer.write(lista_linha)
