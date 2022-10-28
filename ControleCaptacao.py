@@ -93,7 +93,7 @@ if cria:
     with open('Planilha Geral - Captação TOCA I1.csv','a') as base_csv:
       
       writer = csv.writer(base_csv)
-      writer.write_row(lista_linha)
+      writer.write(lista_linha)
       
 
         
