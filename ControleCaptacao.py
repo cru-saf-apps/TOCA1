@@ -111,4 +111,4 @@ elif acao == 'Editar atleta':
   st.write(base[base.Nome.isin(lista_results)][['Nome','Data Nascimento','Posição']])
   
   
-baixar = st.download_button("Baixar base",base)
+baixar = st.download_button("Baixar base",base.to_csv(index=False))
