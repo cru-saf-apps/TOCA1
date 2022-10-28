@@ -80,15 +80,8 @@ if acao == 'Adicionar atleta':
                    monit,data1_monit,data2_monit,
                    aval,data1_aval,data2_aval,
                    aprov,data_contrat,situ,deslig,motivo]
-    
-    linha = lista_linha[0]
-    
-    for item in lista_linha[1:]:
-      linha=linha+";"+str(item)
-      
-    st.write(linha)
-    
- 
+
+
 if cria:
   colunas = base.columns
   base_teste = pd.DataFrame(columns=colunas)
@@ -97,7 +90,7 @@ if cria:
   st.write(base_teste)
   confirm = st.button("Confirmar")
   if confirm:
-    with open('PlanilhaGeral.csv','a') as base_csv:
+    with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
       
       writer = csv.writer(base_csv)
       writer.write(lista_linha)
