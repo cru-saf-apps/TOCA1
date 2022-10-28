@@ -89,9 +89,10 @@ if acao == 'Adicionar atleta':
   cria = st.button("Adicionar atleta")
   
   if cria:
-    with open('Planilha Geral - TOCA 1.csv','w') as base_csv:
+    with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
       writer = csv.writer(base_csv)
       writer.writerow(lista_linha)
+      base_csv.close()
       
 
 elif acao == 'Editar atleta':
