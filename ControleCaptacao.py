@@ -79,8 +79,6 @@ if acao == 'Adicionar atleta':
                    aval,data1_aval,data2_aval,
                    aprov,data_contrat,situ,deslig,motivo]
     
-    cria = st.button("Adicionar atleta")
-    
   
   colunas = base.columns
   base_teste = pd.DataFrame(columns=colunas)
