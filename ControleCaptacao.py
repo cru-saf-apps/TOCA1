@@ -94,7 +94,7 @@ if cria:
 
       base_writer.writerow(lista_linha)
       
-      base_writer.close()
+      base_csv.close()
       
       
 
