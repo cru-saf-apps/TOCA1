@@ -92,9 +92,7 @@ if cria:
   cria2 = st.button("Confirmar")
   
   if cria2:
-    with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
-      writer = csv.writer(base_csv)
-      writer.write(lista_linha)
+    write('teste botao')
       
 
 elif acao == 'Editar atleta':
