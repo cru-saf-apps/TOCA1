@@ -90,6 +90,9 @@ if cria:
   st.write(base_teste)
   confirm = st.button("Confirmar")
   if confirm:
+    base_nova = pd.concat(base,base_teste)
+    base_nova.to_csv('Teste.csv')
+    
     with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
       
       writer = csv.writer(base_csv)
