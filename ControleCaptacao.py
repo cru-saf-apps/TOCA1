@@ -86,6 +86,7 @@ if cria:
   base_teste = pd.DataFrame(columns=colunas)
   base_teste.loc[0] = lista_linha
   st.write("Confirma as informações do atleta?")
+  st.write(base_teste)
   confirm = st.button("Confirmar")
   if confirm:
     with open('Planilha Geral - Captação TOCA I1.csv', mode='w') as base_csv:
