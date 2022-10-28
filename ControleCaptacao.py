@@ -92,11 +92,12 @@ if cria:
   if confirm:
     base_nova = pd.concat(base,base_teste)
     base_nova.to_csv('Teste.csv')
+    st.write(base_nova)
     
-    with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
+    '''with open('Planilha Geral - TOCA 1.csv','a') as base_csv:
       
       writer = csv.writer(base_csv)
-      writer.write(lista_linha)
+      writer.write(lista_linha)'''
       
 
 elif acao == 'Editar atleta':
