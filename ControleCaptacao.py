@@ -103,7 +103,6 @@ if cria:
       writer.write(lista_linha)
       
 
-        
 elif acao == 'Editar atleta':
   
   st.subheader('Busca Rápida')
