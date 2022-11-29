@@ -56,7 +56,7 @@ for ano in pd.unique(base_print.ANO):
 
     st.write(base_ano)
     
-    pdf.cell(40,10,str(base_ano['DATA INÍCIO'].tolist()[0]),ln=1)
+    pdf.cell(40,10,"Agenda de Monitorados em "+str(base_ano['DATA INÍCIO'].tolist()[0].strftime('%m/%d/%Y')),ln=1)
     
     pdf.set_font('Arial','B',16)
     pdf.cell(40,10,str(ano),ln=1)    
