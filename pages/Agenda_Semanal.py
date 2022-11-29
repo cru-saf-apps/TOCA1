@@ -36,7 +36,6 @@ base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'],infer_datetime_format
 st.write(base.dtypes)
 
 semana = st.date_input('Selecione a semana para visualizar monitoramentos',dt.date.today()).strftime('%m/%d/%Y')
-st.write(semana)
 
 base_print = base[base['DATA INÍCIO'] == semana]
 
@@ -53,11 +52,10 @@ pdf.add_page()
 for ano in pd.unique(base_print.ANO):
   try:
     pdf.set_font('Arial','B',16)
-    pdf.cell(40,10,base_print.ANO.tolist()[0],ln=1)
-    
-    pdf.cell(40, 10, ano,ln=1)
     
     base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
+    pdf.cell(40,10,base_ano.ANO.tolist()[0],ln=1)    
+    
     comp = len(base_ano)
     
     t = 0
