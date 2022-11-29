@@ -4,6 +4,7 @@ from fpdf import FPDF
 import base64
 from gspread_pandas import Spread,Client
 from google.oauth2 import service_account
+from datetime import date
 
 def create_download_link(val, filename):
     b64 = base64.b64encode(val)  # val looks like b'...'
@@ -30,7 +31,7 @@ spread = Spread(spreadsheet_name, client = client)
 sh = client.open(spreadsheet_name)
 base = load_spreadsheet(spreadsheet_name)
 
-semana = st.date_input('Selecione a semana para visualizar monitoramentos',pd.unique(base['DATA INÍCIO']))
+semana = st.date_input('Selecione a semana para visualizar monitoramentos',date.today())
 base_print = base[base['DATA INÍCIO'] == semana]
 
 anos = st.selectbox('Selecione a categoria',pd.unique(base_print.ANO))
