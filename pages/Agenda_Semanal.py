@@ -33,6 +33,8 @@ base = load_spreadsheet(spreadsheet_name)
 
 base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'])
 
+st.write(base.dtypes)
+
 semana = st.date_input('Selecione a semana para visualizar monitoramentos',date.today())
 base_print = base[base['DATA INÍCIO'] == semana]
 
