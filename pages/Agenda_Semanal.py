@@ -35,7 +35,7 @@ base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'],infer_datetime_format
 
 st.write(base.dtypes)
 
-semana = st.date_input('Selecione a semana para visualizar monitoramentos',dt.date.today()).dt.strftime('%m/%d/%Y')
+semana = st.date_input('Selecione a semana para visualizar monitoramentos',dt.date.today()).strftime('%m/%d/%Y')
 base_print = base[base['DATA INÍCIO'] == semana]
 
 anos = st.selectbox('Selecione a categoria',pd.unique(base_print.ANO))
