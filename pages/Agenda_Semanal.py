@@ -50,7 +50,7 @@ base_print = base_print[base_print.ANO.isin(lista_anos)]
 pdf = FPDF()
 pdf.add_page()
 pdf.set_font('Arial','B',16)
-pdf.cell(40,10,"Agenda de Monitorados em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
+pdf.cell(100,10,"Agenda de Monitorados em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
 pdf.cell(40,10," ",ln=1)
 
 for ano in pd.unique(base_print.ANO):
@@ -58,14 +58,14 @@ for ano in pd.unique(base_print.ANO):
     base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
     
     pdf.set_font('Arial','B',14)
-    pdf.cell(40,10,str(ano),ln=1,border='B')    
+    pdf.cell(15,10,str(ano),ln=1,border='B')    
 
     comp = len(base_ano)
 
     t = 0
     while t < comp:
 
-      pdf.set_font('Arial','B',12)
+      pdf.set_font('Arial','',12)
       pdf.cell(40, 10, base_ano['NOME COMPLETO'][t],ln=0,border='B')
 
       pdf.cell(40, 10, base_ano['POSIÇÃO'][t],ln=0,border='B')
