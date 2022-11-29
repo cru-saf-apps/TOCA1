@@ -31,6 +31,8 @@ spread = Spread(spreadsheet_name, client = client)
 sh = client.open(spreadsheet_name)
 base = load_spreadsheet(spreadsheet_name)
 
+base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'])
+
 semana = st.date_input('Selecione a semana para visualizar monitoramentos',date.today())
 base_print = base[base['DATA INÍCIO'] == semana]
 
