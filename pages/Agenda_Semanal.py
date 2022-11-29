@@ -158,5 +158,5 @@ elif opcao == 'Avaliações':
         export_as_pdf = st.button("Exportar")
 
         if export_as_pdf:
-            html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de Monitoramentos em "+str(monit_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
+            html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de Monitoramentos em "+str(aval_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
             st.markdown(html, unsafe_allow_html=True)
