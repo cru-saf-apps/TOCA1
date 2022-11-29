@@ -4,6 +4,14 @@ import numpy as np
 from gspread_pandas import Spread,Client
 from google.oauth2 import service_account
 
+st.set_page_config(
+    page_title="Dashboard Captação - CEC",
+    page_icon="✅",
+    layout="wide",
+)
+
+st.title("Dashboard Captação - CEC")
+
 def load_spreadsheet(spreadsheet_name):
     worksheet = sh.worksheet(spreadsheet_name)
     df = pd.DataFrame(worksheet.get_all_records())
