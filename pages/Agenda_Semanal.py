@@ -40,7 +40,7 @@ st.write(semana)
 
 base_print = base[base['DATA INÍCIO'] == semana]
 
-anos = st.selectbox('Selecione a categoria',pd.unique(base_print.ANO))
+anos = st.selectbox('Selecione a categoria',pd.unique(base_print.ANO).tolist())
 
 base_print = base_print[base_print.ANO.isin(anos)]
 
