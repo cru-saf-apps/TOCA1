@@ -58,7 +58,7 @@ if opcao == 'Monitoramentos':
     monit_print = monit[monit['DATA INÍCIO'] == semana]
 
     if monit_print.empty:
-        st.write('Não há atletas monitorados na data selecionada.')
+        st.write('Não há monitoramentos agendados para iniciar na data selecionada.')
 
     else:
         anos = st.multiselect('Selecione a categoria',pd.unique(monit_print.ANO))
@@ -113,7 +113,7 @@ elif opcao == 'Avaliações':
     aval_print = aval[aval['DATA INÍCIO'] == semana]
 
     if aval_print.empty:
-        st.write('Não há atletas monitorados na data selecionada.')
+        st.write('Não há avaliações agendadas para iniciar na data selecionada.')
 
     else:
         anos = st.multiselect('Selecione a categoria',pd.unique(aval_print.ANO))
