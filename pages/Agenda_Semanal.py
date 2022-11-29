@@ -31,7 +31,7 @@ spread = Spread(spreadsheet_name, client = client)
 sh = client.open(spreadsheet_name)
 base = load_spreadsheet(spreadsheet_name)
 
-base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'])
+base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'],infer_datetime_format = True)
 
 st.write(base.dtypes)
 
