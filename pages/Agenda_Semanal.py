@@ -55,7 +55,11 @@ for ano in pd.unique(base_print.ANO):
     base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
 
     st.write(base_ano)
-    pdf.cell(40,10,ano,ln=1)    
+    
+    pdf.cell(40,10,str(base_ano['DATA INÍCIO'].tolist()[0]),ln=1)
+    
+    pdf.set_font('Arial','B',16)
+    pdf.cell(40,10,str(ano),ln=1)    
 
     comp = len(base_ano)
 
@@ -67,7 +71,7 @@ for ano in pd.unique(base_print.ANO):
 
       pdf.cell(40, 10, base_ano['POSIÇÃO'][t],ln=0)
 
-      pdf.cell(40, 10, base_ano['DATA NASCIMENTO'][t],ln=1)
+      pdf.cell(40, 10, str(base_ano['DATA NASCIMENTO'][t]),ln=1)
 
       t+=1
 
