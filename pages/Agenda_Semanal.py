@@ -64,7 +64,7 @@ for ano in pd.unique(base_print.ANO):
     comp = len(base_ano)
 
     t = 0
-    while t <= comp:
+    while t < comp:
 
       pdf.set_font('Arial','B',12)
       pdf.cell(40, 10, base_ano['NOME COMPLETO'][t],ln=0)
