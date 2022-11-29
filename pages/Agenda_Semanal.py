@@ -72,7 +72,7 @@ if opcao == 'Monitoramentos':
         pdf.add_page()
         pdf.set_font('Arial','B',16)
         try:
-            pdf.cell(100,10,"Agenda de Monitorados em "+str(monit_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
+            pdf.cell(100,10,"Agenda de Monitoramentos em "+str(monit_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
             pdf.cell(40,10," ",ln=1)
         except:
             st.write('Favor selecionar uma semana válida e anos válidos')
@@ -127,7 +127,7 @@ elif opcao == 'Avaliações':
         pdf.add_page()
         pdf.set_font('Arial','B',16)
         try:
-            pdf.cell(100,10,"Agenda de Monitorados em "+str(aval_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
+            pdf.cell(100,10,"Agenda de Avaliações em "+str(aval_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
             pdf.cell(40,10," ",ln=1)
         except:
             st.write('Favor selecionar uma semana válida e anos válidos')
@@ -158,5 +158,5 @@ elif opcao == 'Avaliações':
         export_as_pdf = st.button("Exportar")
 
         if export_as_pdf:
-            html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de Monitoramentos em "+str(aval_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
+            html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de "+opcao+" em "+str(aval_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
             st.markdown(html, unsafe_allow_html=True)
