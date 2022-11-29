@@ -43,47 +43,48 @@ base_print = base[base['DATA INÍCIO'] == semana]
 if base_print.empty:
     st.write('Não há atletas monitorados na data selecionada.')
 
-anos = st.multiselect('Selecione a categoria',pd.unique(base_print.ANO))
-lista_anos = []
-for ano in anos:
-    lista_anos.append(ano)
-    
-base_print = base_print[base_print.ANO.isin(lista_anos)]
+else:
+    anos = st.multiselect('Selecione a categoria',pd.unique(base_print.ANO))
+    lista_anos = []
+    for ano in anos:
+        lista_anos.append(ano)
 
-pdf = FPDF()
-pdf.add_page()
-pdf.set_font('Arial','B',16)
-try:
-    pdf.cell(100,10,"Agenda de Monitorados em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
-    pdf.cell(40,10," ",ln=1)
-except:
-    st.write('Favor selecionar uma semana válida e anos válidos')
+    base_print = base_print[base_print.ANO.isin(lista_anos)]
 
-    
-for ano in pd.unique(base_print.ANO):
-    
-    base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
-    
-    pdf.set_font('Arial','B',14)
-    pdf.cell(15,10,str(ano),ln=1,border='B')    
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font('Arial','B',16)
+    try:
+        pdf.cell(100,10,"Agenda de Monitorados em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')),ln=1,border='B')
+        pdf.cell(40,10," ",ln=1)
+    except:
+        st.write('Favor selecionar uma semana válida e anos válidos')
 
-    comp = len(base_ano)
 
-    t = 0
-    while t < comp:
+    for ano in pd.unique(base_print.ANO):
 
-      pdf.set_font('Arial','',12)
-      pdf.cell(40, 10, base_ano['NOME COMPLETO'][t],ln=0,border='B')
+        base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
 
-      pdf.cell(40, 10, base_ano['POSIÇÃO'][t],ln=0,border='B')
+        pdf.set_font('Arial','B',14)
+        pdf.cell(15,10,str(ano),ln=1,border='B')    
 
-      pdf.cell(40, 10, str(base_ano['DATA NASCIMENTO'][t].strftime('%d/%m/%Y')),ln=1,border='B')
-      pdf.cell(40, 10, " ",ln=1)
+        comp = len(base_ano)
 
-      t+=1
+        t = 0
+        while t < comp:
 
-export_as_pdf = st.button("Exportar")
+          pdf.set_font('Arial','',12)
+          pdf.cell(40, 10, base_ano['NOME COMPLETO'][t],ln=0,border='B')
 
-if export_as_pdf:
-    html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de Monitoramentos em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
-    st.markdown(html, unsafe_allow_html=True)
+          pdf.cell(40, 10, base_ano['POSIÇÃO'][t],ln=0,border='B')
+
+          pdf.cell(40, 10, str(base_ano['DATA NASCIMENTO'][t].strftime('%d/%m/%Y')),ln=1,border='B')
+          pdf.cell(40, 10, " ",ln=1)
+
+          t+=1
+
+    export_as_pdf = st.button("Exportar")
+
+    if export_as_pdf:
+        html = create_download_link(pdf.output(dest="S").encode("latin-1"), "Agenda de Monitoramentos em "+str(base_print['DATA INÍCIO'].tolist()[0].strftime('%d/%m/%Y')))
+        st.markdown(html, unsafe_allow_html=True)
