@@ -32,7 +32,8 @@ sh = client.open(spreadsheet_name)
 base = load_spreadsheet(spreadsheet_name)
 
 base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'],infer_datetime_format = True)
-
+base['DATA FIM'] = pd.to_datetime(base['DATA FIM'],infer_datetime_format = True)
+base['DATA NASCIMENTO'] = pd.to_datetime(base['DATA NASCIMENTO'],infer_datetime_format = True)
 
 
 semana = st.date_input('Selecione a semana para visualizar monitoramentos',dt.date.today()).strftime('%m/%d/%Y')
