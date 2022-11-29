@@ -54,6 +54,8 @@ for ano in pd.unique(base_print.ANO):
     pdf.set_font('Arial','B',16)
     
     base_ano = base_print[base_print.ANO == ano].reset_index(drop=True)
+    
+    st.write(base_ano)
     pdf.cell(40,10,base_ano.ANO.tolist()[0],ln=1)    
     
     comp = len(base_ano)
