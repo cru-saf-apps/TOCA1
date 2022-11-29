@@ -33,7 +33,7 @@ base = load_spreadsheet(spreadsheet_name)
 
 base['DATA INÍCIO'] = pd.to_datetime(base['DATA INÍCIO'],infer_datetime_format = True)
 
-st.write(base.dtypes)
+
 
 semana = st.date_input('Selecione a semana para visualizar monitoramentos',dt.date.today()).strftime('%m/%d/%Y')
 
